@@ -6,12 +6,14 @@ class SupplierRegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
     supplier_type = serializers.ChoiceField(choices=['common', 'restaurant'])
     restaurant_name = serializers.CharField(required=False, allow_blank=True)
+    latitude = serializers.FloatField(required=False, allow_null=True)
+    longitude = serializers.FloatField(required=False, allow_null=True)
 
     class Meta:
         model = CustomUser
         fields = [
             'name', 'username', 'password',
-            'contact', 'location',
+            'contact', 'location', 'latitude', 'longitude',
             'supplier_type', 'restaurant_name'
         ]
 
@@ -25,6 +27,8 @@ class SupplierRegisterSerializer(serializers.ModelSerializer):
             name=validated_data['name'],
             contact=validated_data.get('contact', ''),
             location=validated_data.get('location', ''),
+            latitude=validated_data.get('latitude', None),
+            longitude=validated_data.get('longitude', None),
             role='supplier'
         )
 
@@ -40,12 +44,15 @@ class SupplierRegisterSerializer(serializers.ModelSerializer):
 class ReceiverRegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
     has_disability = serializers.BooleanField(default=False)
+    latitude = serializers.FloatField(required=False, allow_null=True)
+    longitude = serializers.FloatField(required=False, allow_null=True)
 
     class Meta:
         model = CustomUser
         fields = [
             'name', 'username', 'password',
-            'contact', 'location', 'has_disability'
+            'contact', 'location', 'latitude', 'longitude',
+            'has_disability'
         ]
 
     def create(self, validated_data):
@@ -57,6 +64,8 @@ class ReceiverRegisterSerializer(serializers.ModelSerializer):
             name=validated_data['name'],
             contact=validated_data.get('contact', ''),
             location=validated_data.get('location', ''),
+            latitude=validated_data.get('latitude', None),
+            longitude=validated_data.get('longitude', None),
             role='receiver'
         )
 
@@ -76,4 +85,7 @@ class LoginSerializer(serializers.Serializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ['id', 'name', 'username', 'role', 'contact', 'location']
+        fields = [
+            'id', 'name', 'username', 'role',
+            'contact', 'location', 'latitude', 'longitude'
+        ]

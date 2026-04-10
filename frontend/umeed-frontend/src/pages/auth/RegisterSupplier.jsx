@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import API from '../../api/axios'
+import LocationPicker from '../../components/LocationPicker'
 
 export default function RegisterSupplier() {
   const { login } = useAuth()
@@ -11,6 +12,8 @@ export default function RegisterSupplier() {
     username: '',
     password: '',
     contact: '',
+    latitude: '',
+    longitude: '',
     location: '',
     supplier_type: 'common',
     restaurant_name: '',
@@ -22,8 +25,21 @@ export default function RegisterSupplier() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  const handleLocationSelect = (lat, lng) => {
+    setFormData((prev) => ({
+      ...prev,
+      latitude: lat,
+      longitude: lng,
+      location: `${lat},${lng}`,
+    }))
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!formData.latitude || !formData.longitude) {
+      setError('Please select your location on the map!')
+      return
+    }
     setLoading(true)
     setError('')
     try {
@@ -58,9 +74,6 @@ export default function RegisterSupplier() {
           <input style={styles.input} type="text" name="contact"
             placeholder="Contact Number" value={formData.contact}
             onChange={handleChange} required />
-          <input style={styles.input} type="text" name="location"
-            placeholder="Location / Area" value={formData.location}
-            onChange={handleChange} required />
 
           <select style={styles.input} name="supplier_type"
             value={formData.supplier_type} onChange={handleChange}>
@@ -73,6 +86,10 @@ export default function RegisterSupplier() {
               placeholder="Restaurant Name" value={formData.restaurant_name}
               onChange={handleChange} required />
           )}
+
+          {/* MAP LOCATION PICKER */}
+          <p style={styles.label}>📍 Select Your Location</p>
+          <LocationPicker onLocationSelect={handleLocationSelect} />
 
           <button style={styles.btn} type="submit" disabled={loading}>
             {loading ? 'Registering...' : 'Register as Supplier'}
@@ -93,6 +110,7 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#f0fdf4',
+    padding: '40px 16px',
   },
   card: {
     backgroundColor: 'white',
@@ -100,10 +118,14 @@ const styles = {
     borderRadius: '16px',
     boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
     width: '100%',
-    maxWidth: '400px',
+    maxWidth: '480px',
   },
   logo: { textAlign: 'center', color: '#16a34a', marginBottom: '8px' },
   title: { textAlign: 'center', color: '#333', marginBottom: '24px' },
+  label: {
+    fontSize: '14px', fontWeight: 'bold',
+    color: '#374151', marginBottom: '8px',
+  },
   input: {
     width: '100%', padding: '12px', marginBottom: '16px',
     borderRadius: '8px', border: '1px solid #d1d5db',
@@ -112,7 +134,7 @@ const styles = {
   btn: {
     width: '100%', padding: '12px', backgroundColor: '#16a34a',
     color: 'white', border: 'none', borderRadius: '8px',
-    fontSize: '16px', cursor: 'pointer',
+    fontSize: '16px', cursor: 'pointer', marginTop: '16px',
   },
   error: { color: 'red', textAlign: 'center', marginBottom: '12px' },
   link: { textAlign: 'center', marginTop: '12px', fontSize: '14px' },

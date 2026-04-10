@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+
 class CustomUser(AbstractUser):
     ROLE_CHOICES = [
         ('supplier', 'Supplier'),
@@ -11,6 +12,8 @@ class CustomUser(AbstractUser):
     name = models.CharField(max_length=100)
     contact = models.CharField(max_length=15, blank=True, null=True)
     location = models.CharField(max_length=255, blank=True, null=True)
+    latitude = models.FloatField(blank=True, null=True)
+    longitude = models.FloatField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.username} ({self.role})"
@@ -22,8 +25,8 @@ class SupplierProfile(models.Model):
         ('restaurant', 'Restaurant'),
     ]
     user = models.OneToOneField(
-        CustomUser, 
-        on_delete=models.CASCADE, 
+        CustomUser,
+        on_delete=models.CASCADE,
         related_name='supplier_profile'
     )
     supplier_type = models.CharField(max_length=20, choices=SUPPLIER_TYPE_CHOICES)
@@ -35,8 +38,8 @@ class SupplierProfile(models.Model):
 
 class ReceiverProfile(models.Model):
     user = models.OneToOneField(
-        CustomUser, 
-        on_delete=models.CASCADE, 
+        CustomUser,
+        on_delete=models.CASCADE,
         related_name='receiver_profile'
     )
     has_disability = models.BooleanField(default=False)
