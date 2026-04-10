@@ -49,7 +49,29 @@ export default function AddFood() {
   }
 
   return (
-    <div className="p-6 max-w-lg mx-auto">
+    <div className=' min-h-screen bg-gradient-to-br from-gray-200 to-gray-300'>
+      {/* NAVBAR */}
+      <nav className="sticky top-0 z-50 flex items-center justify-between px-4 sm:px-8 lg:px-12 py-4 sm:py-6 border-b bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600">
+         <div class="flex items-center gap-2 text-white font-bold text-xl">
+          <span class="text-2xl" role="img" aria-label="fork-and-spoon">
+            🍴
+          </span>
+
+          <span class="font-sans tracking-wide">
+            Umeed
+          </span>
+        </div> 
+        <div className="flex gap-3 items-center">
+          <button
+          // onClick={handleLogout}
+          className="px-4 py-2 bg-gray-400 text-white rounded-lg text-sm font-medium hover:bg-gray-500 transition"
+        >
+          Logout
+        </button>
+        </div>
+      </nav>
+
+    <div className="p-6 mx-auto w-full mt-10 max-w-md sm:max-w-lg bg-gray-200  shadow-red-900 p-6 sm:p-8 rounded-2xl shadow-lg">
       <h2 className="text-xl font-bold mb-4">Add Food Listing</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -69,11 +91,14 @@ export default function AddFood() {
           Food is safe & hygienic
         </label>
 
-        <button className="bg-blue-600 text-white px-4 py-2 rounded">
-          Submit
-        </button>
+        <button className="mt-4 px-4 py-2 
+            bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600 
+            text-white rounded-lg text-sm hover:opacity-90 transition">
+              Submit
+            </button>
 
       </form>
+    </div>
     </div>
   )
 }
