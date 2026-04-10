@@ -8,7 +8,15 @@ export default function Landing() {
 
       {/* NAVBAR */}
       <nav className="sticky top-0 z-50 flex items-center justify-between px-4 sm:px-8 lg:px-12 py-4 sm:py-6 border-b bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600">
-        <h2 className="text-2xl font-bold text-gray-400 m-0">🌱 Umeed</h2>
+         <div class="flex items-center gap-2 text-white font-bold text-xl">
+          <span class="text-2xl" role="img" aria-label="fork-and-spoon">
+            🍴
+          </span>
+
+          <span class="font-sans tracking-wide">
+            Umeed
+          </span>
+        </div> 
         <div className="flex gap-3 items-center">
           <button
             onClick={() => navigate('/login')}

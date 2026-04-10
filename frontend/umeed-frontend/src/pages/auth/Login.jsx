@@ -42,7 +42,15 @@ export default function Login() {
   return (
     <div className="font-sans bg-white text-gray-800">
       <nav className="sticky top-0 z-50 flex items-center justify-between px-4 sm:px-8 lg:px-12 py-4 sm:py-6 border-b bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600">
-        <h2 className="text-2xl font-bold text-gray-400 m-0">🌱 Umeed</h2>
+         <div class="flex items-center gap-2 text-white font-bold text-xl">
+          <span class="text-2xl" role="img" aria-label="fork-and-spoon">
+            🍴
+          </span>
+
+          <span class="font-sans tracking-wide">
+            Umeed
+          </span>
+        </div>
         <div className="flex gap-3 items-center">
           <button
             onClick={() => navigate('/login')}
@@ -70,9 +78,15 @@ export default function Login() {
       <div className="w-full max-w-md bg-gray-200  shadow-red-900 p-6 sm:p-8 rounded-xl shadow-lg">
         
         {/* Logo */}
-        <h1 className="text-center text-5xl sm:text-2xl font-bold text-gray-700 mb-4">
-          🌱 Umeed
-        </h1>
+         <div class="flex items-center gap-2 text-white font-bold text-xl">
+          <span class="text-2xl" role="img" aria-label="fork-and-spoon">
+            🍴
+          </span>
+
+          <span class="font-sans text-gray-700 tracking-wide">
+            Umeed
+          </span>
+        </div>
 
         <h2 className="text-center text-gray-700 font-bold text-4xl sm:text-lg mb-10">
           Login
