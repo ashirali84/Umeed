@@ -11,64 +11,89 @@ export default function SupplierDashboard() {
   }
 
   return (
-    <div style={styles.container}>
-      <div style={styles.navbar}>
-        <h2 style={styles.logo}>🌱 Umeed</h2>
-        <button style={styles.logoutBtn} onClick={handleLogout}>Logout</button>
+    <div className="min-h-screen bg-gradient-to-br from-gray-200 to-gray-300">
+
+      {/* Navbar */}
+      <div className="sticky top-0 z-50 flex items-center justify-between 
+      px-4 sm:px-6 lg:px-8 py-4 
+      bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600 text-white shadow-md">
+
+        <h2 className="text-lg sm:text-xl text-gray-200 font-semibold">
+          🌱 Umeed
+        </h2>
+
+        <button
+          onClick={handleLogout}
+          className="px-4 py-2 bg-gray-400 text-white rounded-lg text-sm font-medium hover:bg-gray-500 transition"
+        >
+          Logout
+        </button>
       </div>
-      <div style={styles.content}>
-        <h1 style={styles.welcome}>Welcome, {user?.name}! 👋</h1>
-        <p style={styles.role}>Role: Supplier</p>
-        <div style={styles.cardGrid}>
-          <div style={styles.card}>
-            <h3>📦 Donate Food</h3>
-            <p>List your surplus food for donation</p>
-            <button style={styles.btn}>Coming Soon</button>
+
+      {/* Content */}
+      <div className="px-4 sm:px-6 lg:px-8 py-8">
+
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-800 mb-1">
+          Welcome, {user?.name}! 👋
+        </h1>
+
+        <p className="text-gray-600 mb-6">
+          Role: Supplier
+        </p>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          {/* Card 1 */}
+          <div className="bg-white/30 backdrop-blur-xl border border-white/30 
+          p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
+
+            <h3 className="text-lg font-semibold mb-2">📦 Donate Food</h3>
+            <p className="text-sm text-gray-700">
+              List your surplus food for donation
+            </p>
+
+            <button className="mt-4 px-4 py-2 
+            bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600 
+            text-white rounded-lg text-sm hover:opacity-90 transition">
+              Coming Soon
+            </button>
           </div>
-          <div style={styles.card}>
-            <h3>📋 My Listings</h3>
-            <p>View your active food listings</p>
-            <button style={styles.btn}>Coming Soon</button>
+
+          {/* Card 2 */}
+          <div className="bg-white/30 backdrop-blur-xl border border-white/30 
+          p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
+
+            <h3 className="text-lg font-semibold mb-2">📋 My Listings</h3>
+            <p className="text-sm text-gray-700">
+              View your active food listings
+            </p>
+
+            <button className="mt-4 px-4 py-2 
+            bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600 
+            text-white rounded-lg text-sm hover:opacity-90 transition">
+              Coming Soon
+            </button>
           </div>
-          <div style={styles.card}>
-            <h3>📍 Map View</h3>
-            <p>See donation points on map</p>
-            <button style={styles.btn}>Coming Soon</button>
+
+          {/* Card 3 */}
+          <div className="bg-white/30 backdrop-blur-xl border border-white/30 
+          p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
+
+            <h3 className="text-lg font-semibold mb-2">📍 Map View</h3>
+            <p className="text-sm text-gray-700">
+              See donation points on map
+            </p>
+
+            <button className="mt-4 px-4 py-2 
+            bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600 
+            text-white rounded-lg text-sm hover:opacity-90 transition">
+              Coming Soon
+            </button>
           </div>
+
         </div>
       </div>
     </div>
   )
-}
-
-const styles = {
-  container: { minHeight: '100vh', backgroundColor: '#f0fdf4' },
-  navbar: {
-    display: 'flex', justifyContent: 'space-between',
-    alignItems: 'center', padding: '16px 32px',
-    backgroundColor: '#16a34a', color: 'white',
-  },
-  logo: { margin: 0, color: 'white' },
-  logoutBtn: {
-    padding: '8px 16px', backgroundColor: 'white',
-    color: '#16a34a', border: 'none', borderRadius: '8px',
-    cursor: 'pointer', fontWeight: 'bold',
-  },
-  content: { padding: '40px 32px' },
-  welcome: { color: '#166534', marginBottom: '8px' },
-  role: { color: '#6b7280', marginBottom: '32px' },
-  cardGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    gap: '24px',
-  },
-  card: {
-    backgroundColor: 'white', padding: '24px',
-    borderRadius: '16px', boxShadow: '0 2px 10px rgba(0,0,0,0.08)',
-  },
-  btn: {
-    marginTop: '12px', padding: '10px 20px',
-    backgroundColor: '#16a34a', color: 'white',
-    border: 'none', borderRadius: '8px', cursor: 'pointer',
-  },
 }

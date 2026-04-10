@@ -4,249 +4,152 @@ export default function Landing() {
   const navigate = useNavigate()
 
   return (
-    <div style={styles.wrapper}>
+    <div className="font-sans bg-white text-gray-800">
 
       {/* NAVBAR */}
-      <nav style={styles.navbar}>
-        <h2 style={styles.logo}>🌱 Umeed</h2>
-        <div style={styles.navLinks}>
-          <button style={styles.navBtn} onClick={() => navigate('/login')}>Login</button>
-          <button style={styles.navBtnOutline} onClick={() => navigate('/register/supplier')}>
+      <nav className="sticky top-0 z-50 flex items-center justify-between px-4 sm:px-8 lg:px-12 py-4 sm:py-6 border-b bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600">
+        <h2 className="text-2xl font-bold text-gray-400 m-0">🌱 Umeed</h2>
+        <div className="flex gap-3 items-center">
+          <button
+            onClick={() => navigate('/login')}
+            className="px-5 py-2 bg-gray-400 text-white font-bold rounded-lg text-sm hover:bg-gray-400 transition"
+          >
+            Login
+          </button>
+          <button
+            onClick={() => navigate('/register/supplier')}
+            className="px-5 py-2 bg-gray-400 text-white font-bold rounded-lg text-sm hover:bg-gray-400  transition"
+          >
             Join as Supplier
           </button>
-          <button style={styles.navBtnOutline} onClick={() => navigate('/register/receiver')}>
+          <button
+            onClick={() => navigate('/register/receiver')}
+            className="px-5 py-2 bg-gray-400 text-white font-bold rounded-lg text-sm hover:bg-gray-400 transition"
+          >
             Join as Receiver
           </button>
         </div>
       </nav>
 
       {/* HERO */}
-      <section style={styles.hero}>
-        <div style={styles.heroContent}>
-          <span style={styles.badge}>🇮🇳 Made for India</span>
-          <h1 style={styles.heroTitle}>
+      <section className="flex items-center justify-between px-12 py-20 min-h-screen bg-gradient-to-br from-gray-200 to-gray-300">
+        <div className="max-w-xl  ml-20">
+          
+          <h1 className="text-6xl font-extrabold leading-tight mb-5 text-gray-800">
             Surplus Food,<br />
-            <span style={styles.highlight}>Not Wasted.</span>
+            <span className="text-red-900">Not Wasted.</span>
           </h1>
-          <p style={styles.heroSubtitle}>
+          <p className="text-lg text-gray-500 leading-relaxed mb-9">
             Umeed connects restaurants, households, and individuals
             with surplus food to those who need it most —
             reducing waste, fighting hunger, one meal at a time.
           </p>
-          <div style={styles.heroBtns}>
-            <button style={styles.primaryBtn} onClick={() => navigate('/register/supplier')}>
+          <div className="flex gap-4 flex-wrap">
+            <button
+              onClick={() => navigate('/register/supplier')}
+              className="px-7 py-3 bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600 text-white font-bold rounded-xl text-base hover:bg-gray-500 transition"
+            >
               🍽️ Donate Food
             </button>
-            <button style={styles.secondaryBtn} onClick={() => navigate('/register/receiver')}>
+            <button
+              onClick={() => navigate('/register/receiver')}
+              className="px-7 py-3 bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600  text-white font-bold rounded-xl text-base hover:bg-green-50 transition"
+            >
               🤲 Receive Food
             </button>
           </div>
         </div>
 
-        <div style={styles.heroIllustration}>
-          <div style={styles.illustrationBox}>
-            <span style={styles.bigEmoji}>🍱</span>
+        <div className="flex items-center justify-center mr-20">
+          <div className="w-64 h-64 bg-white rounded-full flex items-center justify-center shadow-2xl shadow-red-950">
+            {/* <span className="text-9xl">🍱</span> */}
+            <img className="w-64 h-64 bg-white rounded-full flex items-center justify-center shadow-2xl shadow-red-950" src="umeed_logo.png" alt="🍱" />
           </div>
         </div>
       </section>
 
       {/* STATS */}
-      <section style={styles.statsSection}>
-        <div style={styles.statCard}>
-          <h2 style={styles.statNumber}>78M+</h2>
-          <p style={styles.statLabel}>Tonnes of food wasted in India yearly</p>
+      <section className="flex justify-center gap-10 flex-wrap px-12 py-16 bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600">
+        <div className="text-center text-white">
+          <h2 className="text-5xl font-extrabold m-0">78M+</h2>
+          <p className="text-base opacity-80 mt-2">Tonnes of food wasted in India yearly</p>
         </div>
-        <div style={styles.statCard}>
-          <h2 style={styles.statNumber}>20Cr+</h2>
-          <p style={styles.statLabel}>Indians go to bed hungry every day</p>
+        <div className="text-center text-white">
+          <h2 className="text-5xl font-extrabold m-0">20Cr+</h2>
+          <p className="text-base opacity-80 mt-2">Indians go to bed hungry every day</p>
         </div>
-        <div style={styles.statCard}>
-          <h2 style={styles.statNumber}>40%</h2>
-          <p style={styles.statLabel}>Food produced never reaches a plate</p>
+        <div className="text-center text-white">
+          <h2 className="text-5xl font-extrabold m-0">40%</h2>
+          <p className="text-base opacity-80 mt-2">Food produced never reaches a plate</p>
         </div>
       </section>
 
       {/* HOW IT WORKS */}
-      <section style={styles.howSection}>
-        <h2 style={styles.sectionTitle}>How Umeed Works</h2>
-        <div style={styles.stepsGrid}>
-          <div style={styles.stepCard}>
-            <span style={styles.stepEmoji}>📝</span>
-            <h3>Register</h3>
-            <p>Sign up as a Supplier or Receiver in under 2 minutes</p>
-          </div>
-          <div style={styles.stepCard}>
-            <span style={styles.stepEmoji}>📦</span>
-            <h3>List or Browse</h3>
-            <p>Suppliers list surplus food. Receivers browse nearby listings.</p>
-          </div>
-          <div style={styles.stepCard}>
-            <span style={styles.stepEmoji}>📍</span>
-            <h3>Locate</h3>
-            <p>Find food donation points on the live map near you</p>
-          </div>
-          <div style={styles.stepCard}>
-            <span style={styles.stepEmoji}>🤝</span>
-            <h3>Connect</h3>
-            <p>Coordinate pickup and reduce food waste together</p>
-          </div>
+      <section className="px-12 py-20 bg-gray-50 text-center">
+        <h2 className="text-4xl font-bold mb-12 text-gray-800">How Umeed Works</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {[
+            { emoji: '📝', title: 'Register', desc: 'Sign up as a Supplier or Receiver in under 2 minutes' },
+            { emoji: '📦', title: 'List or Browse', desc: 'Suppliers list surplus food. Receivers browse nearby listings.' },
+            { emoji: '📍', title: 'Locate', desc: 'Find food donation points on the live map near you' },
+            { emoji: '🤝', title: 'Connect', desc: 'Coordinate pickup and reduce food waste together' },
+          ].map((step, i) => (
+            <div key={i} className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition">
+              <span className="text-4xl">{step.emoji}</span>
+              <h3 className="text-lg font-bold mt-3 mb-2">{step.title}</h3>
+              <p className="text-gray-300 text-sm">{step.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* FOR SECTION */}
-      <section style={styles.forSection}>
-        <h2 style={styles.sectionTitle}>Who is Umeed for?</h2>
-        <div style={styles.forGrid}>
-          <div style={styles.forCard}>
-            <span style={styles.stepEmoji}>🏪</span>
-            <h3>Restaurants & Caterers</h3>
-            <p>Donate your daily surplus food instead of throwing it away</p>
-          </div>
-          <div style={styles.forCard}>
-            <span style={styles.stepEmoji}>🏠</span>
-            <h3>Households</h3>
-            <p>Have leftover food from events or celebrations? Share it!</p>
-          </div>
-          <div style={styles.forCard}>
-            <span style={styles.stepEmoji}>🏥</span>
-            <h3>Shelters & NGOs</h3>
-            <p>Receive food donations directly from nearby suppliers</p>
-          </div>
-          <div style={styles.forCard}>
-            <span style={styles.stepEmoji}>👤</span>
-            <h3>Individuals in Need</h3>
-            <p>Find free or affordable food available near your location</p>
-          </div>
+      {/* WHO IS IT FOR */}
+      <section className="px-12 py-20 bg-white text-center">
+        <h2 className="text-4xl font-bold mb-12 text-gray-800">Who is Umeed for?</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {[
+            { emoji: '🏪', title: 'Restaurants & Caterers', desc: 'Donate your daily surplus food instead of throwing it away' },
+            { emoji: '🏠', title: 'Households', desc: 'Have leftover food from events or celebrations? Share it!' },
+            { emoji: '🏥', title: 'Shelters & NGOs', desc: 'Receive food donations directly from nearby suppliers' },
+            { emoji: '👤', title: 'Individuals in Need', desc: 'Find free or affordable food available near your location' },
+          ].map((item, i) => (
+            <div key={i} className="bg-gray-400 border p-8 rounded-2xl hover:shadow-md transition">
+              <span className="text-4xl">{item.emoji}</span>
+              <h3 className="text-lg font-bold mt-3 mb-2">{item.title}</h3>
+              <p className="text-gray-500 text-sm">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section style={styles.ctaSection}>
-        <h2 style={styles.ctaTitle}>Ready to make a difference?</h2>
-        <p style={styles.ctaSubtitle}>
+      <section className="px-12 py-20 text-center bg-gradient-to-br from-gray-200 to-gray-300">
+        <h2 className="text-4xl font-extrabold mb-4 text-gray-800">Ready to make a difference?</h2>
+        <p className="text-lg text-gray-500 mb-9">
           Join Umeed today and help us build a hunger-free India
         </p>
-        <div style={styles.heroBtns}>
-          <button style={styles.primaryBtn} onClick={() => navigate('/register/supplier')}>
+        <div className="flex gap-4 justify-center flex-wrap">
+          <button
+            onClick={() => navigate('/register/supplier')}
+            className="px-7 py-3 bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600 text-white font-bold rounded-xl text-base transition"
+          >
             Start Donating
           </button>
-          <button style={styles.secondaryBtn} onClick={() => navigate('/register/receiver')}>
+          <button
+            onClick={() => navigate('/register/receiver')}
+            className="px-7 py-3 bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600 text-gray-200 font-bold rounded-xl text-base hover:bg-gray-500 transition"
+          >
             Find Food Near Me
           </button>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer style={styles.footer}>
-        <p>🌱 Umeed — Spreading Hope, One Meal at a Time</p>
-        <p style={styles.footerSub}>Made with ❤️ at HackHorizon 2K26 · ARKA JAIN University</p>
+      <footer className="px-12 py-8 text-center bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600 text-white">
+        <p className="font-medium">🌱 Umeed — Spreading Hope, One Meal at a Time</p>
+        <p className="text-sm opacity-60 mt-2">Made with ❤️ at HackHorizon 2K26 · ARKA JAIN University</p>
       </footer>
 
     </div>
   )
-}
-
-const styles = {
-  wrapper: {
-    fontFamily: "'Segoe UI', sans-serif",
-    backgroundColor: '#ffffff',
-    color: '#1f2937',
-  },
-
-  navbar: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '16px 48px',
-    backgroundColor: 'white',
-    boxShadow: '0 2px 10px rgba(0,0,0,0.08)',
-    position: 'sticky',
-    top: 0,
-  },
-
-  logo: {
-    margin: 0,
-    color: '#190b30',
-    fontSize: '30px',
-    fontWeight: '900',
-  },
-
-  navLinks: { display: 'flex', gap: '12px' },
-
-  navBtn: {
-    padding: '10px 22px',
-    background: 'linear-gradient(135deg, #110820, #2c0b0b)',
-    color: 'white',
-    border: 'none',
-    borderRadius: '10px',
-    fontWeight: '700',
-  },
-
-  navBtnOutline: {
-    padding: '10px 22px',
-    background: 'transparent',
-    color: '#140b23',
-    border: '2px solid #150929',
-    borderRadius: '10px',
-    fontWeight: '700',
-  },
-
-  hero: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    padding: '80px 48px',
-    background: 'linear-gradient(135deg, #646464, #968f8f)',
-  },
-
-  heroTitle: {
-    fontSize: '64px',
-    fontWeight: '900',
-  },
-
-  highlight: {
-    color: '#110721',
-  },
-
-  primaryBtn: {
-    padding: '16px 32px',
-    background: 'linear-gradient(135deg, #1a0935, #400e0e)',
-    color: 'white',
-    border: 'none',
-    borderRadius: '12px',
-    fontWeight: '800',
-  },
-
-  secondaryBtn: {
-    padding: '16px 32px',
-    border: '2px solid #200f3c',
-    color: '#180832',
-    borderRadius: '12px',
-    fontWeight: '700',
-  },
-
-  statsSection: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '40px',
-    padding: '60px',
-    background: 'linear-gradient(135deg, #6d28d9, #7f1d1d)',
-    color: 'white',
-  },
-
-  statNumber: {
-    fontSize: '56px',
-    fontWeight: '900',
-  },
-
-  sectionTitle: {
-    fontSize: '44px',
-    fontWeight: '800',
-  },
-
-  footer: {
-    padding: '32px',
-    backgroundColor: '#1f2937',
-    color: 'white',
-    textAlign: 'center',
-  },
 }
