@@ -6,7 +6,8 @@ import RegisterSupplier from './pages/auth/RegisterSupplier'
 import RegisterReceiver from './pages/auth/RegisterReceiver'
 import SupplierDashboard from './pages/dashboard/SupplierDashboard'
 import ReceiverDashboard from './pages/dashboard/ReceiverDashboard'
-// import AdminDashboard from './pages/dashboard/AdminDashboard'
+import AdminDashboard from './pages/dashboard/AdminDashboard'
+import Landing from './pages/Landing'
 
 const ProtectedRoute = ({ children, allowedRole }) => {
   const { user, loading } = useAuth()
@@ -19,7 +20,7 @@ const ProtectedRoute = ({ children, allowedRole }) => {
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/login" />} />
+      <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register/supplier" element={<RegisterSupplier />} />
       <Route path="/register/receiver" element={<RegisterReceiver />} />
