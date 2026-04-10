@@ -20,7 +20,7 @@ export default function Landing() {
         </div>
       </nav>
 
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section style={styles.hero}>
         <div style={styles.heroContent}>
           <span style={styles.badge}>🇮🇳 Made for India</span>
@@ -34,20 +34,15 @@ export default function Landing() {
             reducing waste, fighting hunger, one meal at a time.
           </p>
           <div style={styles.heroBtns}>
-            <button
-              style={styles.primaryBtn}
-              onClick={() => navigate('/register/supplier')}
-            >
+            <button style={styles.primaryBtn} onClick={() => navigate('/register/supplier')}>
               🍽️ Donate Food
             </button>
-            <button
-              style={styles.secondaryBtn}
-              onClick={() => navigate('/register/receiver')}
-            >
+            <button style={styles.secondaryBtn} onClick={() => navigate('/register/receiver')}>
               🤲 Receive Food
             </button>
           </div>
         </div>
+
         <div style={styles.heroIllustration}>
           <div style={styles.illustrationBox}>
             <span style={styles.bigEmoji}>🍱</span>
@@ -55,7 +50,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* STATS SECTION */}
+      {/* STATS */}
       <section style={styles.statsSection}>
         <div style={styles.statCard}>
           <h2 style={styles.statNumber}>78M+</h2>
@@ -98,7 +93,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* WHO IS IT FOR */}
+      {/* FOR SECTION */}
       <section style={styles.forSection}>
         <h2 style={styles.sectionTitle}>Who is Umeed for?</h2>
         <div style={styles.forGrid}>
@@ -125,23 +120,17 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* CTA SECTION */}
+      {/* CTA */}
       <section style={styles.ctaSection}>
         <h2 style={styles.ctaTitle}>Ready to make a difference?</h2>
         <p style={styles.ctaSubtitle}>
           Join Umeed today and help us build a hunger-free India
         </p>
         <div style={styles.heroBtns}>
-          <button
-            style={styles.primaryBtn}
-            onClick={() => navigate('/register/supplier')}
-          >
+          <button style={styles.primaryBtn} onClick={() => navigate('/register/supplier')}>
             Start Donating
           </button>
-          <button
-            style={styles.secondaryBtn}
-            onClick={() => navigate('/register/receiver')}
-          >
+          <button style={styles.secondaryBtn} onClick={() => navigate('/register/receiver')}>
             Find Food Near Me
           </button>
         </div>
@@ -164,139 +153,100 @@ const styles = {
     color: '#1f2937',
   },
 
-  // NAVBAR
   navbar: {
-    display: 'flex', justifyContent: 'space-between',
-    alignItems: 'center', padding: '16px 48px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '16px 48px',
     backgroundColor: 'white',
     boxShadow: '0 2px 10px rgba(0,0,0,0.08)',
-    position: 'sticky', top: 0, zIndex: 100,
-  },
-  logo: { margin: 0, color: '#16a34a', fontSize: '24px' },
-  navLinks: { display: 'flex', gap: '12px', alignItems: 'center' },
-  navBtn: {
-    padding: '8px 20px', backgroundColor: '#16a34a',
-    color: 'white', border: 'none', borderRadius: '8px',
-    cursor: 'pointer', fontWeight: 'bold', fontSize: '14px',
-  },
-  navBtnOutline: {
-    padding: '8px 20px', backgroundColor: 'transparent',
-    color: '#16a34a', border: '2px solid #16a34a',
-    borderRadius: '8px', cursor: 'pointer',
-    fontWeight: 'bold', fontSize: '14px',
+    position: 'sticky',
+    top: 0,
   },
 
-  // HERO
+  logo: {
+    margin: 0,
+    color: '#190b30',
+    fontSize: '30px',
+    fontWeight: '900',
+  },
+
+  navLinks: { display: 'flex', gap: '12px' },
+
+  navBtn: {
+    padding: '10px 22px',
+    background: 'linear-gradient(135deg, #110820, #2c0b0b)',
+    color: 'white',
+    border: 'none',
+    borderRadius: '10px',
+    fontWeight: '700',
+  },
+
+  navBtnOutline: {
+    padding: '10px 22px',
+    background: 'transparent',
+    color: '#140b23',
+    border: '2px solid #150929',
+    borderRadius: '10px',
+    fontWeight: '700',
+  },
+
   hero: {
-    display: 'flex', alignItems: 'center',
+    display: 'flex',
     justifyContent: 'space-between',
     padding: '80px 48px',
-    background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
-    minHeight: '85vh',
+    background: 'linear-gradient(135deg, #646464, #968f8f)',
   },
-  heroContent: { maxWidth: '600px' },
-  badge: {
-    display: 'inline-block',
-    backgroundColor: '#bbf7d0', color: '#166534',
-    padding: '6px 16px', borderRadius: '999px',
-    fontSize: '14px', fontWeight: 'bold', marginBottom: '20px',
-  },
+
   heroTitle: {
-    fontSize: '56px', fontWeight: '800',
-    lineHeight: '1.2', marginBottom: '20px', color: '#1f2937',
+    fontSize: '64px',
+    fontWeight: '900',
   },
-  highlight: { color: '#16a34a' },
-  heroSubtitle: {
-    fontSize: '18px', color: '#4b5563',
-    lineHeight: '1.7', marginBottom: '36px',
+
+  highlight: {
+    color: '#110721',
   },
-  heroBtns: { display: 'flex', gap: '16px', flexWrap: 'wrap' },
+
   primaryBtn: {
-    padding: '14px 28px', backgroundColor: '#16a34a',
-    color: 'white', border: 'none', borderRadius: '10px',
-    fontSize: '16px', fontWeight: 'bold', cursor: 'pointer',
+    padding: '16px 32px',
+    background: 'linear-gradient(135deg, #1a0935, #400e0e)',
+    color: 'white',
+    border: 'none',
+    borderRadius: '12px',
+    fontWeight: '800',
   },
+
   secondaryBtn: {
-    padding: '14px 28px', backgroundColor: 'transparent',
-    color: '#16a34a', border: '2px solid #16a34a',
-    borderRadius: '10px', fontSize: '16px',
-    fontWeight: 'bold', cursor: 'pointer',
+    padding: '16px 32px',
+    border: '2px solid #200f3c',
+    color: '#180832',
+    borderRadius: '12px',
+    fontWeight: '700',
   },
-  heroIllustration: {
-    display: 'flex', alignItems: 'center', justifyContent: 'center',
-  },
-  illustrationBox: {
-    width: '280px', height: '280px',
-    backgroundColor: 'white',
-    borderRadius: '50%',
-    display: 'flex', alignItems: 'center', justifyContent: 'center',
-    boxShadow: '0 20px 60px rgba(22, 163, 74, 0.2)',
-  },
-  bigEmoji: { fontSize: '120px' },
 
-  // STATS
   statsSection: {
-    display: 'flex', justifyContent: 'center',
-    gap: '40px', flexWrap: 'wrap',
-    padding: '60px 48px',
-    backgroundColor: '#16a34a',
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '40px',
+    padding: '60px',
+    background: 'linear-gradient(135deg, #6d28d9, #7f1d1d)',
+    color: 'white',
   },
-  statCard: { textAlign: 'center', color: 'white' },
-  statNumber: { fontSize: '48px', fontWeight: '800', margin: 0 },
-  statLabel: { fontSize: '16px', opacity: 0.85, marginTop: '8px' },
 
-  // HOW IT WORKS
-  howSection: {
-    padding: '80px 48px',
-    backgroundColor: '#f9fafb',
-    textAlign: 'center',
+  statNumber: {
+    fontSize: '56px',
+    fontWeight: '900',
   },
+
   sectionTitle: {
-    fontSize: '36px', fontWeight: '700',
-    marginBottom: '48px', color: '#1f2937',
+    fontSize: '44px',
+    fontWeight: '800',
   },
-  stepsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-    gap: '24px', maxWidth: '900px', margin: '0 auto',
-  },
-  stepCard: {
-    backgroundColor: 'white', padding: '32px 24px',
-    borderRadius: '16px', boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
-  },
-  stepEmoji: { fontSize: '40px' },
 
-  // FOR SECTION
-  forSection: {
-    padding: '80px 48px',
-    backgroundColor: 'white',
+  footer: {
+    padding: '32px',
+    backgroundColor: '#1f2937',
+    color: 'white',
     textAlign: 'center',
   },
-  forGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-    gap: '24px', maxWidth: '1000px', margin: '0 auto',
-  },
-  forCard: {
-    backgroundColor: '#f0fdf4', padding: '32px 24px',
-    borderRadius: '16px',
-    border: '1px solid #bbf7d0',
-  },
-
-  // CTA
-  ctaSection: {
-    padding: '80px 48px', textAlign: 'center',
-    background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
-  },
-  ctaTitle: { fontSize: '40px', fontWeight: '800', marginBottom: '16px' },
-  ctaSubtitle: {
-    fontSize: '18px', color: '#4b5563', marginBottom: '36px',
-  },
-
-  // FOOTER
-  footer: {
-    padding: '32px 48px', textAlign: 'center',
-    backgroundColor: '#1f2937', color: 'white',
-  },
-  footerSub: { opacity: 0.6, fontSize: '14px', marginTop: '8px' },
 }
