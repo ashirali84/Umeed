@@ -53,10 +53,18 @@ export default function ReceiverDashboard() {
               Browse nearby food donations
             </p>
 
-            <button className="mt-4 px-4 py-2 
+            {/* <button className="mt-4 px-4 py-2 
             bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600 
             text-white rounded-lg text-sm hover:opacity-90 transition">
               Coming Soon
+            </button> */}
+             <button
+              onClick={() => navigate('/food-list')}
+              className="mt-4 px-4 py-2 
+            bg-gradient-to-r from-violet-800 via-red-900 to-indigo-600 
+            text-white rounded-lg text-sm hover:opacity-90 transition"
+            >
+              View Food Listings
             </button>
           </div>
 

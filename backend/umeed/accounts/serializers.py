@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import CustomUser, SupplierProfile, ReceiverProfile
-
+from .models import FoodListing
 
 class SupplierRegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -89,3 +89,9 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'id', 'name', 'username', 'role',
             'contact', 'location', 'latitude', 'longitude'
         ]
+
+
+class FoodListingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FoodListing
+        fields = '__all__'        

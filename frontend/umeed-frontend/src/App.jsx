@@ -9,6 +9,8 @@ import SupplierDashboard from './pages/dashboard/SupplierDashboard'
 import ReceiverDashboard from './pages/dashboard/ReceiverDashboard'
 import AdminDashboard from './pages/dashboard/AdminDashboard'
 import Landing from './pages/Landing'
+import AddFood from './pages/AddFood'
+import FoodList from './pages/FoodList'
 
 const ProtectedRoute = ({ children, allowedRole }) => {
   const { user, loading } = useAuth()
@@ -25,6 +27,8 @@ function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/register/supplier" element={<RegisterSupplier />} />
       <Route path="/register/receiver" element={<RegisterReceiver />} />
+      <Route path="/add-food" element={<AddFood />} />
+      <Route path="/food-list" element={<FoodList />} />
 
       <Route path="/dashboard/supplier" element={
         <ProtectedRoute allowedRole="supplier">
