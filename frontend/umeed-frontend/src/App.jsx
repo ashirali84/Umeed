@@ -14,7 +14,11 @@ import FoodList from './pages/FoodList'
 
 const ProtectedRoute = ({ children, allowedRole }) => {
   const { user, loading } = useAuth()
-  if (loading) return <div>Loading...</div>
+  if (loading) return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <p className="text-gray-500 text-lg">⏳ Loading...</p>
+    </div>
+  )
   if (!user) return <Navigate to="/login" />
   if (allowedRole && user.role !== allowedRole) return <Navigate to="/login" />
   return children
@@ -27,8 +31,13 @@ function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/register/supplier" element={<RegisterSupplier />} />
       <Route path="/register/receiver" element={<RegisterReceiver />} />
-      <Route path="/add-food" element={<AddFood />} />
       <Route path="/food-list" element={<FoodList />} />
+
+      <Route path="/add-food" element={
+        <ProtectedRoute allowedRole="supplier">
+          <AddFood />
+        </ProtectedRoute>
+      } />
 
       <Route path="/dashboard/supplier" element={
         <ProtectedRoute allowedRole="supplier">
@@ -47,6 +56,8 @@ function AppRoutes() {
           <AdminDashboard />
         </ProtectedRoute>
       } />
+
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   )
 }
